@@ -1,15 +1,27 @@
 class Solution {
     public void sort012(int[] arr) {
         // code here
-        ArrayList<Integer> list=new ArrayList<>();
-        for(int i=0;i<=arr.length-1;i++)
-        {
-            list.add(arr[i]);
-        }
-        Collections.sort(list);
-        for(int i=0;i<=list.size()-1;i++)
-        {
-            arr[i]=list.get(i);
+        int n=arr.length;
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        while(mid<=high){
+            if(arr[mid]==0){
+                int temp=arr[mid];
+                arr[mid]=arr[low];
+                arr[low]=temp;
+                low++;
+                mid++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                int temp=arr[mid];
+                arr[mid]=arr[high];
+                arr[high]=temp;
+                high--;
+            }
         }
     }
 }
